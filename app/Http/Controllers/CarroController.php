@@ -25,9 +25,35 @@ public function show($id_carro){
     $carro = Carro::find($id_carro);
     $carro->dueno="Juanito";
     $carro->save();
+    dd($carro);
+
     
 return "Vista del carro con ese id";
 }
+
+public function lista(){
+    $carros = Carro::all();
+    //dd($carros);
+    return view("carros")->with(['carros'=>$carros]);
+}
+
+public function nuevo(){
+    return view("nuevo");
+}
+
+public function guardar(Request $request){
+    $carro = new Carro();
+    $carro->nombre = $request->nombre;
+    $carro->color = $request->color;
+    $carro->dueno = $request->dueno;
+    $carro->placa = $request->placa;
+    $carro->marca = $request->marca;
+    $carro->modelo = $request->modelo;
+    $carro ->save();
+    return redirect("admin/carros/lista")->with(["estatus"=>"El carro {$carro->nombre} fue agregado (="]);
+
+}
+
 
 public function edit($id){
 return "mostrar la vista de edicion";

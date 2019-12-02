@@ -29,7 +29,15 @@ Route::prefix('admin')->group(function () {
     });
 
     Route::get('carros', 'CarroController@index');
-    Route::get('carros/{id}', 'CarroController@index');
+    Route::get('carros/lista', 'CarroController@lista');
+    Route::get('carros/nuevo', 'CarroController@nuevo');
+    Route::post('carros/guardar', 'CarroController@guardar');
+
+
+    Route::get('carros/{id}', 'CarroController@show');
+    Route::get('carros/{id}/edit', 'CarroController@edit');
+    
+    
 
     
 

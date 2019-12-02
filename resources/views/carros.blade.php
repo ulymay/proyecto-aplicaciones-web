@@ -80,20 +80,35 @@
             @endif
 
             <div class="content">
-                <div class="title m-b-md">
-                    Laravel
-                </div>
+            <a href="" class="btn btn-success"> Nuevo Carro</a>
+                <table>
+                    <thead>
+                        <th>id</th>
+                        <th>nombre</th>
+                        <th>modelo</th>
+                        <th>color</th>
+                        <th>dueno</th>
+                        <th></th>
+                    </thead>
+                    <tbody>
+                        @foreach($carros as $carro)
+                        <tr>
+                        <td>{{$carro->id}}</td>
+                        <td>{{$carro->nombre}}</td>
+                        <td>{{$carro->modelo}}</td>
+                        <td>{{$carro->color}}</td>
+                        <td>{{$carro->dueno}}</td>
+                        <td>
+                            <a href="">editar</a>
+                            <br>
+                            <a href="">eliminar</a>
+                        </td>
+                        </tr>
+                        @endforeach
+                        
+                    </tbody>
+                </table>
 
-                <div class="links">
-                    <a href="https://laravel.com/docs">Docs</a>
-                    <a href="https://laracasts.com">Laracasts!!!!</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://blog.laravel.com">Blog</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://vapor.laravel.com">Vapor</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
-                </div>
             </div>
         </div>
     </body>
