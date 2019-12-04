@@ -92,12 +92,24 @@
                     </thead>
                     <tbody>
                         @foreach($carros as $carro)
+                        @php
+                            {{
+                                $carro->load("duenocarro");
+                                $dueno=$carro->duenocarro;
+
+                            }}
+                        @endphp
                         <tr>
                         <td>{{$carro->id}}</td>
                         <td>{{$carro->nombre}}</td>
                         <td>{{$carro->modelo}}</td>
                         <td>{{$carro->color}}</td>
-                        <td>{{$carro->dueno}}</td>
+                        <td>
+                        {{$dueno->nombre}}<br>
+                        {{$dueno->telefono}}<br>
+                        {{$dueno->correo}}<br>
+                        
+                        </td>
                         <td>
                             <a href="">editar</a>
                             <br>
